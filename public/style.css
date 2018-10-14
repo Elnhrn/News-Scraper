@@ -1,0 +1,17 @@
+html {
+    font-family: 'Helvetica', sans-serif;
+}
+
+form {
+    padding: 30px 0;
+}
+
+.mtb {
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 30em) {
+    .f-6-ns, .f-headline-ns {
+        font-size: 3rem;
+    }
+}

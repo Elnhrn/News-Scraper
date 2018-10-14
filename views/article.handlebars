@@ -1,0 +1,43 @@
+<section class="mw7 center avenir">
+
+    <article class="bt bb b--black-10">
+        <a class="db pv4 ph3 ph0-l no-underline black dim" href="{{articles.link}}">
+            <div class="flex flex-column flex-row-ns">
+                <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+                    <img src="{{articles.image}}" class="db" alt="{{articles.title}}">
+                </div>
+                <div class="w-100 w-60-ns pl3-ns">
+                    <h1 class="f3 fw1 baskerville mt0 lh-title">{{articles.title}}</h1>
+                    <p class="f6 f5-l lh-copy">
+                        {{articles.summary}}
+                    </p>
+                    <p class="f6 lh-copy mv0">By {{articles.author}}</p>
+                </div>
+            </div>
+        </a>
+    </article>
+
+    <h1 class="f3 fw1 baskerville mt0 lh-title mtb">Comments</h1>
+
+    {{#if articles.comment}}
+    {{#each articles.comment}}
+    <p class="f6 f5-l lh-copy">
+        <span class="underline pr2">{{this.username}}:</span> {{this.message}} <img src="../images/garbage.png" height="16px" class="f6 link dim dib white ph4" id="delete" data-id={{this._id}}>
+    </p>
+    {{/each}}
+    {{/if}}
+
+    <form class="black-80" action="/articles/{{articles._id}}" method="post">
+        <h1 class="f3 fw1 baskerville mt0 lh-title">Add a Comment</h1>
+        <div class="measure">
+            <label for="username" class="f6 b db mb2">Name</label>
+            <input id="username" name="username" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc">
+            <div>
+                <label for="message" class="f6 b db mb2">Comments </label>
+                <textarea id="message" name="message" class="db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
+                    aria-describedby="comment-desc"></textarea>
+            </div>
+            <button class="f6 link dim ph3 pv2 mb2 dib white bg-mid-gray" id="submit" type="submit">Post Comment</button>
+        </div>
+    </form>
+</section>
